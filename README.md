@@ -11,15 +11,13 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-Here's the updated documentation including the source of the code:
-
----
-
 # flutter_validation
 
 ## Description
 
 A Flutter package for flexible and reusable form field validations. This package provides an abstract class for defining validation rules and a utility class to apply these rules to form fields. It simplifies the process of validating user input in Flutter applications. The code is adapted and structured from the article [Flutter Form Validation Beyond Basics](https://medium.com/@payam-zahedi/flutter-form-validation-beyond-basics-76443e768624) by Payam Zahedi, with additional test coverage.
+
+    ⚠️ I don't claim ownership of the code, created for the sake of reusing the package without the need to write from scratch.
 
 ## Features
 
@@ -60,7 +58,7 @@ Here’s a simple example demonstrating how to use the `flutter_validation` pack
 
    ```dart
    class RequiredValidation<T> extends Validation<T> {
-     RequiredValidation();
+     const RequiredValidation();
 
      @override
      String? validate(BuildContext context, T? value) {
@@ -75,7 +73,7 @@ Here’s a simple example demonstrating how to use the `flutter_validation` pack
    final context = /* Obtain BuildContext from your widget tree */;
 
    final validations = [
-     RequiredValidation<String>(),
+     const RequiredValidation<String>(),
    ];
 
    final validator = Validator.apply<String>(context, validations);
@@ -95,7 +93,7 @@ Here’s a simple example demonstrating how to use the `flutter_validation` pack
              TextFormField(
                validator: Validator.apply<String>(
                  context,
-                 [RequiredValidation('This field cannot be empty')],
+                 [const RequiredValidation()],
                ),
              ),
            ],
